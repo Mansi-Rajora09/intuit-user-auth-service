@@ -23,16 +23,17 @@ public class Utility {
        if (registerDto == null) {
         throw new IllegalArgumentException("RegisterDto cannot be null");
     }
-    if (registerDto.getName() == null || registerDto.getName().isEmpty()) {
+    if (isNullOrEmpty(registerDto.getName())) {
         throw new IllegalArgumentException("Name cannot be null or empty");
     }
-    if (registerDto.getUsername() == null || registerDto.getUsername().isEmpty()) {
+    if (isNullOrEmpty(registerDto.getUsername())) {
         throw new IllegalArgumentException("Username cannot be null or empty");
     }
-    if (registerDto.getEmail() == null || registerDto.getEmail().isEmpty() || !EMAIL_REGEX.matcher(registerDto.getEmail()).matches()) {
+    if (isNullOrEmpty(registerDto.getEmail()) || !EMAIL_REGEX.matcher(registerDto.getEmail()).matches()) {
         throw new IllegalArgumentException("Invalid email format");
     }
-    if (registerDto.getPassword() == null || registerDto.getPassword().isEmpty() || !PASSWORD_REGEX.matcher(registerDto.getPassword()).matches()) {
+    
+    if (isNullOrEmpty(registerDto.getPassword())  || !PASSWORD_REGEX.matcher(registerDto.getPassword()).matches()) {
         throw new IllegalArgumentException("Password must be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, one digit, and one special character");
     }
       }
