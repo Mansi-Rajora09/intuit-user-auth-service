@@ -34,6 +34,9 @@ public class UserPreference {
     @Column(name = "notification_setting")
     private String notificationSetting;
 
+    @Column(name = "profile_visible")
+    private String profileVisible;
+
     @Column(name = "created_at", nullable = true, updatable = false)
     @CreationTimestamp
     private Date createdAt;

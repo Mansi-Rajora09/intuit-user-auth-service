@@ -48,6 +48,7 @@
 /Users/mansi.rajora/Documents/practice/intuit-music-project/intuit-user-auth-service/src/main/java/com/springboot/user/utils/AppConstants.java
 /Users/mansi.rajora/Documents/practice/intuit-music-project/intuit-user-auth-service/src/main/java/com/springboot/user/utils/Utility.java
 /Users/mansi.rajora/Documents/practice/intuit-music-project/intuit-user-auth-service/src/main/java/com/springboot/user/service/impl/AuthServiceImpl.java
+/Users/mansi.rajora/Documents/practice/intuit-music-project/intuit-user-auth-service/src/main/java/com/springboot/user/controller/CustomHealthIndicator.java
 /Users/mansi.rajora/Documents/practice/intuit-music-project/intuit-user-auth-service/src/main/java/com/springboot/user/repository/UserFollowersRepository.java
 /Users/mansi.rajora/Documents/practice/intuit-music-project/intuit-user-auth-service/src/main/java/com/springboot/user/service/AuthService.java
 /Users/mansi.rajora/Documents/practice/intuit-music-project/intuit-user-auth-service/src/main/java/com/springboot/user/SpringbootUserRestApiApplication.java

@@ -14,7 +14,7 @@ import com.springboot.user.service.UserPreferenceService;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
 @RestController
-@RequestMapping("/api/userpreferences")
+@RequestMapping("/intuit/api/userpreferences")
 public class UserPreferenceController {
 
     private UserPreferenceService userPreferenceService;
