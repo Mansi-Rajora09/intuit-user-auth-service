@@ -77,6 +77,9 @@ public class User {
     @Column(name = "last_login_date")
     private Date lastLoginDate;
 
+    @Column(name = "bonus")
+    private Long bonus;
+
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     private Set<Role> roles;
@@ -88,4 +91,6 @@ public class User {
     @UpdateTimestamp
     @Column(name = "updated_at", nullable = true)
     private Date updatedAt;
+
+
 }

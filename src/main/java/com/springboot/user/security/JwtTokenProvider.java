@@ -77,4 +77,16 @@ public class JwtTokenProvider {
             throw new UserAPIException(HttpStatus.BAD_REQUEST, "Jwt claims string is null or empty");
         }
     }
+
+    public String generateTokenWithUserId(Long userId) {
+        Date now = new Date();
+        Date expiryDate = new Date(now.getTime() + jwtExpirationDate);
+
+        return Jwts.builder()
+                .setSubject(Long.toString(userId))
+                .setIssuedAt(new Date())
+                .setExpiration(expiryDate)
+                .signWith(key())
+                .compact();
+    }
 }

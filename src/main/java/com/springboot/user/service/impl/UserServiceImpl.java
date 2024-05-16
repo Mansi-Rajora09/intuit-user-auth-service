@@ -1,26 +1,31 @@
 package com.springboot.user.service.impl;
 
+import com.springboot.user.entity.Role;
 import com.springboot.user.entity.User;
 import com.springboot.user.payload.UserDetailsDTO;
+import com.springboot.user.repository.RoleRepository;
 import com.springboot.user.repository.UserRepository;
 import com.springboot.user.service.UserService;
+import com.springboot.user.utils.AppConstants;
 import com.springboot.user.utils.VerificationStatus;
 
+import java.util.HashSet;
+import java.util.Set;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
-    private ModelMapper modelMapper;
+        private RoleRepository roleRepository;
+
 
     public UserServiceImpl(
             UserRepository userRepository,
-            ModelMapper modelMapper) {
+            RoleRepository roleRepository) {
         this.userRepository = userRepository;
-        this.modelMapper=modelMapper;
+        this.roleRepository =roleRepository;
 
     }
 
@@ -29,6 +34,10 @@ public class UserServiceImpl implements UserService {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("User not found with id: " + userId));
         user.setVerificationStatus(VerificationStatus.VERIFIED);
+         Set<Role> roles = new HashSet<>();
+        Role userRole = roleRepository.findByName("ROLE_USER").get();
+        roles.add(userRole);
+        user.setRoles(roles);
         userRepository.save(user);
     }
 
@@ -78,5 +87,26 @@ public class UserServiceImpl implements UserService {
     }
     private boolean isValid(String value) {
         return value != null && !value.isEmpty();
+    }
+
+    @Override
+    public Long getBonus(Long userId) {
+        User user = userRepository.findById(userId)
+        .orElseThrow(() -> new IllegalArgumentException("User not found with id: " + userId));
+        return user.getBonus()==null?0:user.getBonus();
+    }
+
+    @Override
+    public void increaseBonus(Long userId,String action) {
+        User user = userRepository.findById(userId)
+        .orElseThrow(() -> new IllegalArgumentException("User not found with id: " + userId));
+        if (action.equalsIgnoreCase(AppConstants.INCREASE_ACTION)){
+        user.setBonus(user.getBonus()==null?0:user.getBonus() + 1);
+        }
+        if (action.equalsIgnoreCase(AppConstants.DECREASE_ACTION)){
+            user.setBonus(user.getBonus()==null?0:user.getBonus() - 1);
+            }
+        userRepository.save(user);
+
     }
 }

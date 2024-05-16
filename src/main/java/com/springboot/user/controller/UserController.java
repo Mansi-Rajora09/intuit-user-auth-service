@@ -5,6 +5,7 @@ import com.springboot.user.service.UserService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -22,7 +23,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping("/verify/{userId}")
+    @GetMapping("/verify/{userId}")
     public ResponseEntity<String> verifyUser(@PathVariable Long userId) {
         try {
             userService.verifyUser(userId);
@@ -30,6 +31,23 @@ public class UserController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Failed to verify user: " + e.getMessage());
+        }
+    }
+
+    @GetMapping("/{userId}/bonus")
+    public ResponseEntity<Long> getBonusCount(@PathVariable Long userId) {
+       Long bonus =userService.getBonus(userId);
+        return ResponseEntity.ok(bonus);
+    }
+
+    @GetMapping("/{userId}/{action}")
+    public ResponseEntity<String> increaseBonus(@PathVariable Long userId,@PathVariable String action) {
+        try {
+            userService.increaseBonus(userId,action);
+            return ResponseEntity.ok("Bonus increased successfully for user with ID: " + userId);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Failed to increase bonus of the user: " + e.getMessage());
         }
     }
 

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import com.springboot.user.payload.UserReviewDTO;
@@ -20,6 +21,7 @@ public class UserReviewController {
 
     }
 
+    @PreAuthorize("hasRole('ROLE_USER')")
     @PostMapping("/add")
     public ResponseEntity<String> addUserReview(@RequestBody UserReviewDTO userReviewDTO) {
         try {

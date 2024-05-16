@@ -10,4 +10,8 @@ public interface UserService {
 
     public void deactivateAccount(Long userId);
 
+    public Long getBonus(Long userId);
+
+    public void increaseBonus(Long userId,String action);
+
 }

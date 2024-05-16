@@ -28,6 +28,6 @@ If you haven't insatlled Maven on your machine then use below command:
  ## 4. Insert Data
 User below Insert SQL statements to insert records into roles table:
 ```sql
-INSERT INTO `myuser.roles` VALUES (1,'ROLE_ADMIN'),(2,'ROLE_USER');
+INSERT INTO `intuit.roles` VALUES (1,'ROLE_ADMIN'),(2,'ROLE_USER'),(3,'ROLE_GUEST');
 ```
 Now, Spring boot user application is ready to use.

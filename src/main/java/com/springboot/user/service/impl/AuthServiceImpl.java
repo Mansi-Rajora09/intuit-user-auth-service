@@ -69,14 +69,18 @@ public class AuthServiceImpl implements AuthService {
         if (userRepository.existsByEmail(registerDto.getEmail())) {
             throw new UserAPIException(HttpStatus.BAD_REQUEST, "Email is already exists!.");
         }
-        
+
         User user = new User();
         user.setUsername(registerDto.getUsername());
         user.setEmail(registerDto.getEmail());
         user.setPassword(passwordEncoder.encode(registerDto.getPassword()));
-
+        /**
+         * We have three types of User
+         * User register is considered as role_guest once user is verified it is change
+         * into role_user and other is role_admin
+         */
         Set<Role> roles = new HashSet<>();
-        Role userRole = roleRepository.findByName("ROLE_USER").get();
+        Role userRole = roleRepository.findByName("ROLE_GUEST").get();
         roles.add(userRole);
         user.setRoles(roles);
 
@@ -85,5 +89,4 @@ public class AuthServiceImpl implements AuthService {
         return "User registered successfully!.";
     }
 
-  
 }

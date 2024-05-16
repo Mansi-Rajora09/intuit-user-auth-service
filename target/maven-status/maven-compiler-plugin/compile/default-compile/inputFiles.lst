@@ -1,4 +1,3 @@
-/Users/mansi.rajora/Documents/practice/intuit-music-project/intuit-user-auth-service/src/main/java/com/springboot/user/entity/UserTransactions.java
 /Users/mansi.rajora/Documents/practice/intuit-music-project/intuit-user-auth-service/src/main/java/com/springboot/user/entity/UserActivity.java
 /Users/mansi.rajora/Documents/practice/intuit-music-project/intuit-user-auth-service/src/main/java/com/springboot/user/controller/UserFollowersController.java
 /Users/mansi.rajora/Documents/practice/intuit-music-project/intuit-user-auth-service/src/main/java/com/springboot/user/repository/UserRepository.java
@@ -32,7 +31,6 @@
 /Users/mansi.rajora/Documents/practice/intuit-music-project/intuit-user-auth-service/src/main/java/com/springboot/user/utils/PasswordGeneratorEncoder.java
 /Users/mansi.rajora/Documents/practice/intuit-music-project/intuit-user-auth-service/src/main/java/com/springboot/user/entity/UserReviews.java
 /Users/mansi.rajora/Documents/practice/intuit-music-project/intuit-user-auth-service/src/main/java/com/springboot/user/payload/UserPreferenceDTO.java
-/Users/mansi.rajora/Documents/practice/intuit-music-project/intuit-user-auth-service/src/main/java/com/springboot/user/repository/UserTransactionsRepository.java
 /Users/mansi.rajora/Documents/practice/intuit-music-project/intuit-user-auth-service/src/main/java/com/springboot/user/entity/UserPreference.java
 /Users/mansi.rajora/Documents/practice/intuit-music-project/intuit-user-auth-service/src/main/java/com/springboot/user/service/impl/UserPreferenceServiceImpl.java
 /Users/mansi.rajora/Documents/practice/intuit-music-project/intuit-user-auth-service/src/main/java/com/springboot/user/service/UserPreferenceService.java
