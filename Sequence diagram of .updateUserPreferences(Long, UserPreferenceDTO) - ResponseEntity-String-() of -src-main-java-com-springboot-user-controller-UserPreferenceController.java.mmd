@@ -1,0 +1,14 @@
+
+%%{init: {'theme':'forest'}}%%
+
+sequenceDiagram
+
+    Title Sequence diagram of .updateUserPreferences(Long, UserPreferenceDTO) : ResponseEntity<String>() of /src/main/java/com/springboot/user/controller/UserPreferenceController.java
+
+    participant p1 as updateUserPreferences(Long, UserPreferenceDTO) : ResponseEntity<String>()<br>:controller/UserPreferenceController.java/UserPreferenceController.java
+    participant p2 as <br>:service/UserPreferenceService.java/UserPreferenceService.java
+
+
+	p1 ->>+ p2: 1: updateUserPreferences(Long, UserPreferenceDTO) : void;
+	p2 -->>- p1: 1: return value
+        
